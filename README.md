@@ -46,3 +46,37 @@ EOT
 chmod +x deploy.sh
 USERNAME=user_name PASSWORD=user_token ./deploy.sh      --------> edit user_name and user_token
 
+
+Requirements
+------------
+
+This role presumes access to and use in AWS.
+
+You must have a policy such as the below Attach attached to the EC2 instances (by creating an IAM role and an Instance Profile)
+
+			{
+			  "Version": "2012-10-17",
+			  "Statement": [{
+			    "Effect": "Allow",
+			    "Action": [
+			      "iam:ListUsers",
+			      "iam:GetGroup"
+			    ],
+			    "Resource": "*"
+			  }, {
+			    "Effect": "Allow",
+			    "Action": [
+			      "iam:GetSSHPublicKey",
+			      "iam:ListSSHPublicKeys"
+			    ],
+			    "Resource": [
+			      "arn:aws:iam::<YOUR_USERS_ACCOUNT_ID_HERE>:user/*"
+			    ]
+			  }, {
+			      "Effect": "Allow",
+			      "Action": "ec2:DescribeTags",
+			      "Resource": "*"
+			  }]
+			}
+
+
