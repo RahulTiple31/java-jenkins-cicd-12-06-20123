@@ -55,30 +55,30 @@ This role presumes access to and use in AWS.
 You must have a policy such as the below Attach attached to the EC2 instances (by creating an IAM role and an Instance Profile)
 
 			{
-cat << EOT > deploy.sh
-#! /bin/bash
+				cat << EOT > deploy.sh
+				#! /bin/bash
 
-sudo apt-get update
-sudo apt-get install docker.io -y
-sudo snap install docker
-docker --version
-
-GITHUB_REPO="https://$USERNAME:$PASSWORD@https://github.com/newstartao/swf-eureka-server.git"
-CONTAINER_NAME="swf-eureka-server"
-IMAGE_NAME="swf-eureka-server-images"
-DOCKERFILE_PATH="path/to/Dockerfile"
-
-git clone $GITHUB_REPO
-cd swf-eureka-server
-docker build -t swf-eureka-server-image .
-docker run -itd --name $CONTAINER_NAME swf-eureka-server-images /bin/bash
-if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
-  echo "Container $CONTAINER_NAME is running."
-else
-  echo "Failed to start container $CONTAINER_NAME."
-fi
-
-EOT
+				sudo apt-get update
+				sudo apt-get install docker.io -y
+				sudo snap install docker
+				docker --version
+				
+				GITHUB_REPO="https://$USERNAME:$PASSWORD@https://github.com/newstartao/swf-eureka-server.git"
+				CONTAINER_NAME="swf-eureka-server"
+				IMAGE_NAME="swf-eureka-server-images"
+				DOCKERFILE_PATH="path/to/Dockerfile"
+				
+				git clone $GITHUB_REPO
+				cd swf-eureka-server
+				docker build -t swf-eureka-server-image .
+				docker run -itd --name $CONTAINER_NAME swf-eureka-server-images /bin/bash
+				if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+				  echo "Container $CONTAINER_NAME is running."
+				else
+				  echo "Failed to start container $CONTAINER_NAME."
+				fi
+				
+				EOT
 			}
 
 
