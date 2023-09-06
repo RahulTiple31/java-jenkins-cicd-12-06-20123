@@ -1,8 +1,9 @@
-### README.md
+README.md
+=========
 
 This README provides instructions on how to deploy and run a Docker container on your local machine using an Ansible script. This setup assumes you have Ansible installed on your local machine and Docker installed and properly configured.
 
-# Table of Contents:
+## Table of Contents:
 
 Prerequisites
 Running the shell Script
