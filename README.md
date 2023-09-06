@@ -14,7 +14,7 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 
 #### Create the shell script using the following command:
 
-	nano << EOT > deploy.sh
+	cat << EOT > deploy.sh
 	#! /bin/bash
 	
 	sudo apt-get update
