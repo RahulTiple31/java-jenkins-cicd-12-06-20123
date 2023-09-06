@@ -14,36 +14,40 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 
 #### Create the shell script using the following command:
 
-		cat << EOT > deploy.sh
-		#! /bin/bash
-					
-		sudo apt-get update
-		sudo apt-get install docker.io -y
-		docker --version
-					
-		GITHUB_REPO="https://$USERNAME:$PASSWORD@github.com/newstartao/swf-eureka-server.git"
-		CONTAINER_NAME="swf-eureka-server"
-		IMAGE_NAME="swf-eureka-server-images"
-  
-		git clone $GITHUB_REPO
-		cd swf-eureka-server
-		docker build -t swf-eureka-server-image .
-		docker run -itd --name $CONTAINER_NAME swf-eureka-server-images /bin/bash
-		if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
-		  echo "Container $CONTAINER_NAME is running."
-		else
-		  echo "Failed to start container $CONTAINER_NAME."
-		fi		
-		EOT
-
+	cat << EOT > deploy.sh
+	#! /bin/bash
+	
+	sudo apt-get update
+	sudo apt-get install docker.io -y
+	docker --version
+	
+	CONTAINER_NAME="swf-eureka-server"
+	IMAGE_NAME="ghcr.io/newstartao/swf-eureka-server-main"
+	
+	echo $PASSWORD | docker login ghcr.io -u $USERNAME --password-stdin
+	docker pull ghcr.io/newstartao/swf-eureka-server-main:latest
+	docker logout ghcr.io
+	docker images
+	
+	docker run -itd --name $CONTAINER_NAME $IMAGE_NAME /bin/bash
+	if [ "(docker ps -f name=$CONTAINER_NAME)" ]; then
+	  echo
+	  docker ps
+	  echo
+	  echo "Container  is running."
+	  echo
+	else
+	  echo "Failed to start container ."
+	fi		
+	EOT
 
 ### Running the shell Script
 
 ##### Make it execute permissions:
 
-		chmod +x deploy.sh
+	chmod +x deploy.sh
 ##### Edit your user_name and user_token and run the shell script using the following command:
-		USERNAME=user_name PASSWORD=user_token ./deploy.sh
+	USERNAME=user_name PASSWORD=user_token ./deploy.sh
 
 
 			
