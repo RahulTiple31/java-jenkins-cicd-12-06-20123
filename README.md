@@ -24,7 +24,7 @@ sudo apt-get install docker.io -y
 sudo snap install docker
 docker --version
 
-# Define variables
+#### Define variables
 GITHUB_REPO="https://$USERNAME:$PASSWORD@https://github.com/newstartao/swf-eureka-server.git"
 CONTAINER_NAME="swf-eureka-server"
 IMAGE_NAME="swf-eureka-server-images"
