@@ -54,7 +54,7 @@ This role presumes access to and use in AWS.
 
 You must have a policy such as the below Attach attached to the EC2 instances (by creating an IAM role and an Instance Profile)
 
-			{
+			
 				cat << EOT > deploy.sh
 				#! /bin/bash
 
@@ -79,6 +79,6 @@ You must have a policy such as the below Attach attached to the EC2 instances (b
 				fi
 				
 				EOT
-			}
+			
 
 
