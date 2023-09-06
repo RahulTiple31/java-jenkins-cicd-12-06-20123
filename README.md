@@ -40,7 +40,6 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 	else
 	  echo "Failed to start container ."
 	fi		
-	EOT
 
 ### Running the shell Script
 
