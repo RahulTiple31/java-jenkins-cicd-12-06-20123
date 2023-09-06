@@ -22,11 +22,10 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 		sudo snap install docker
 		docker --version
 					
-		GITHUB_REPO="https://$USERNAME:$PASSWORD@https://github.com/newstartao/swf-eureka-server.git"
+		GITHUB_REPO="https://$USERNAME:$PASSWORD@github.com/newstartao/swf-eureka-server.git"
 		CONTAINER_NAME="swf-eureka-server"
 		IMAGE_NAME="swf-eureka-server-images"
-		DOCKERFILE_PATH="path/to/Dockerfile"
-					
+  
 		git clone $GITHUB_REPO
 		cd swf-eureka-server
 		docker build -t swf-eureka-server-image .
