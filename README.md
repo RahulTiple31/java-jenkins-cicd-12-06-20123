@@ -22,10 +22,10 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 	docker --version
 	
 	CONTAINER_NAME="swf-eureka-server"
-	IMAGE_NAME="ghcr.io/newstartao/swf-eureka-server-main"
+	IMAGE_NAME="ghcr.io/newstartao/swf-eureka-server-main:latest"
 	
 	echo $PASSWORD | docker login ghcr.io -u $USERNAME --password-stdin
-	docker pull ghcr.io/newstartao/swf-eureka-server-main:latest
+	docker pull $IMAGE_NAME
 	docker logout ghcr.io
 	docker images
 	
