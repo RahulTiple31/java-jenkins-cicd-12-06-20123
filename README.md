@@ -19,7 +19,6 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 					
 		sudo apt-get update
 		sudo apt-get install docker.io -y
-		sudo snap install docker
 		docker --version
 					
 		GITHUB_REPO="https://$USERNAME:$PASSWORD@github.com/newstartao/swf-eureka-server.git"
