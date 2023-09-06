@@ -45,7 +45,7 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 
 		chmod +x deploy.sh
 ##### Edit user_name and user_token and run the shell script using the following command:
-		USERNAME= **user_name** PASSWORD= **user_token** ./deploy.sh
+		USERNAME=user_name PASSWORD=user_token ./deploy.sh
 
 
 			
