@@ -40,6 +40,7 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 				EOT
 
 
+### Running the shell Script
 
 #### Make it execute permissions and run the shell script using the following command:
 
