@@ -13,8 +13,9 @@ This README provides instructions on how to deploy and run a Docker container on
 To deploy and create a Docker container on your local machine from a GitHub repository, you can create a shell script that automates the process.
 
 #### Create the shell script using the following command:
+	vim deploy.sh
 
-	cat << EOT > deploy.sh
+#### Copy the shell script:
 	#! /bin/bash
 	
 	sudo apt-get update
@@ -44,8 +45,8 @@ To deploy and create a Docker container on your local machine from a GitHub repo
 ### Running the shell Script
 
 ##### Make it execute permissions:
-
 	chmod +x deploy.sh
+ 
 ##### Edit your user_name and user_token and run the shell script using the following command:
 	USERNAME=user_name PASSWORD=user_token ./deploy.sh
 
